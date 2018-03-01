@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易时钟</title>
+	<style>
+	#clock{width: 262px;margin: 0 auto;border: 1px solid #ccc;font-size: 16px;}
+	#clock input{background-color: #808080;color: #fff;margin: 5px;width: 60px;height: 20px;border: none;text-align: center;}
+	</style>
+	<script>
+		window.onload=function()
+		{
+			var oInput=document.getElementById('clock').getElementsByTagName('input');
+			
+			setTime();
+			setInterval(setTime,1000);
+
+			function setTime()
+			{
+			var time= new Date();
+
+			oInput[0].value=time.getFullYear();
+			oInput[1].value=time.getMonth()+1;
+			oInput[2].value=time.getDate();
+			oInput[3].value=time.getHours();
+			oInput[4].value=time.getMinutes();
+			oInput[5].value=time.getSeconds()
+			}
+			
+		}
+	</script>
+
+</head>
+<body>
+	<div id="clock">
+		<input type="text" readonly="readonly">年<input type="text" readonly="readonly">月<input type="text" readonly="readonly">日<input type="text" readonly="readonly">时<input type="text" readonly="readonly">分<input type="text" readonly="readonly">秒
+	</div>
+</body>
+</html>
